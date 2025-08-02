@@ -27,10 +27,15 @@ El sistema está compuesto por los siguientes microservicios:
 Primero, debes clonar los repositorios de los microservicios en el directorio base. La estructura debe ser la siguiente:
 
 # Clonar los repositorios de los microservicios
+
 git clone https://github.com/joseantoniopedraza/taller_ms_persitence.git
+
 git clone https://github.com/joseantoniopedraza/taller_ms_notifier.git
+
 git clone https://github.com/joseantoniopedraza/taller_ms_front.git
+
 git clone https://github.com/joseantoniopedraza/taller_ms_processor.git
+
 git clone https://github.com/joseantoniopedraza/taller_ms_getter.git
 ```
 
