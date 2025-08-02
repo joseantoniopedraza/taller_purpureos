@@ -1,0 +1,82 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis
+    container_name: redis-service
+    ports:
+      - "6379:6379"
+    networks:
+      - red_ms
+    logging:
+      driver: "none"
+
+  taller-ms-getter:
+    build: ./taller_ms_getter
+    env_file:
+      - .ms_getter.env
+    depends_on:
+      - redis
+    networks:
+      - red_ms
+
+  taller-ms-processor:
+    build: ./taller_ms_processor
+    env_file:
+      - .ms_processor.env
+    depends_on:
+      - redis
+      - taller-ms-persistence
+    networks:
+      - red_ms
+
+  taller-ms-notifier:
+    build: ./taller_ms_notifier
+    env_file:
+      - .ms_notifier.env
+    depends_on:
+      - redis
+    networks:
+      - red_ms
+
+  postgres:
+    image: postgres:15
+    container_name: postgres-service
+    env_file:
+      - .postgres.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - red_ms
+
+  taller-ms-persistence:
+    build: ./taller_ms_persitence
+    env_file:
+      - .ms_persistence.env
+    depends_on:
+      - postgres
+    ports:
+      - "3001:3001"
+    expose:
+      - "3001"
+    networks:
+      - red_ms
+
+  taller-ms-front:
+    build: ./taller_ms_front
+    ports:
+      - "3000:3000"
+    networks:
+      - red_ms
+    depends_on:
+      - taller-ms-persistence
+      - taller-ms-processor
+      - taller-ms-notifier
+
+networks:
+  red_ms:
+
+volumes:
+  postgres_data:
