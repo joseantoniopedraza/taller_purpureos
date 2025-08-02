@@ -24,11 +24,7 @@ El sistema está compuesto por los siguientes microservicios:
 
 ### 1. Clonación de Repositorios
 
-Primero, debes clonar los repositorios de los microservicios en un directorio base. La estructura debe ser la siguiente:
-
-```bash
-mkdir taller
-cd taller
+Primero, debes clonar los repositorios de los microservicios en el directorio base. La estructura debe ser la siguiente:
 
 # Clonar los repositorios de los microservicios
 git clone https://github.com/joseantoniopedraza/taller_ms_persitence.git
@@ -42,14 +38,19 @@ git clone https://github.com/joseantoniopedraza/taller_ms_getter.git
 
 Los archivos de configuración de entorno son necesarios para el correcto funcionamiento de los microservicios. **Debes solicitar estos archivos mediante correo electrónico** al equipo de desarrollo.
 
-Los archivos requeridos son:
+Debes completar los campos:
 
-- `.ms_front.env` - Configuración del frontend
-- `.ms_persistence.env` - Configuración del servicio de persistencia
-- `.ms_processor.env` - Configuración del procesador
-- `.ms_getter.env` - Configuración del servicio getter
-- `.ms_notifier.env` - Configuración del notificador
-- `.postgres.env` - Configuración de la base de datos
+.ms_getter.env
+API_KEY_MERCADO_PUBLICO
+
+.ms_notifier.env
+API_KEY_GMAIL
+
+.ms_persistence.env
+DB_PASSWORD
+
+.ms_processor.env
+GOOGLE_API_KEY
 
 ### 3. Estructura de Directorios
 
