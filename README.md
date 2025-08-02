@@ -28,7 +28,7 @@ Primero, debes clonar los repositorios de los microservicios en el directorio ba
 
 # Clonar los repositorios de los microservicios
 git clone https://github.com/joseantoniopedraza/taller_ms_persitence.git
-git clone https://github.com/joseantoniopedraza/taller_notifier.git
+git clone https://github.com/joseantoniopedraza/taller_ms_notifier.git
 git clone https://github.com/joseantoniopedraza/taller_ms_front.git
 git clone https://github.com/joseantoniopedraza/taller_ms_processor.git
 git clone https://github.com/joseantoniopedraza/taller_ms_getter.git
